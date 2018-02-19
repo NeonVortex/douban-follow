@@ -8,6 +8,7 @@
 // @require      http://code.jquery.com/jquery-1.4.4.min.js
 // @grant        GM_xmlhttpRequest
 // @connect      douban.com
+// @license      MIT
 // ==/UserScript==
 
 (function() {
