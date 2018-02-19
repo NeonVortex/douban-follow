@@ -15,7 +15,7 @@
     'use strict';
 
     var link = $("#friend>p").append("<br/><a style='color:#37a'>> 未关注我的人</a><br/>");
-
+    
     link.click(function(){
         //20180219 B Change selector for future proof
         //var numFollowers = $("#friend > p > a[href$='/contacts/rlist']").text().replace(/[^0-9]/g,"");
@@ -100,7 +100,7 @@
 
             setTimeout(sendFollowingRequest.bind(undefined, i), i*500);
         }
-
+        
     });
 
 })();
