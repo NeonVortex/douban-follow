@@ -1,0 +1,14 @@
+{
+    "name": "Douban Follow",
+    "version": "0.2",
+    "manifest_version": 2,
+    "description": "Find who is not following me.",
+    "browser_action": {
+        "default_icon": "icon.jpg"
+    },
+    "content_scripts":[{
+        "js":["jquery-1.4.4.min.js","Douban Follow.user.js"],
+        "matches":["*://www.douban.com/","*://douban.com/"],
+        "run_at": "document_end"
+    }]
+}
