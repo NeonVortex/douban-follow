@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Douban Follow
 // @namespace    http://brucezhao.com/
-// @version      0.2
+// @version      0.2.1
 // @description  Find who did not follow me back!
 // @author       Mr.Beitang
 // @match        *://www.douban.com/
