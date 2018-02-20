@@ -15,7 +15,7 @@
 (function() {
     'use strict';
 
-    var link = $("#friend>p").append("<br/><a style='color:#37a'>> 未关注我的人</a><br/>");
+    var link = $("#friend>p").append("<br/><a href='javascript:void(0)'>> 未关注我的人</a><br/>");
     
     link.click(function(){
         //20180219 B Change selector for future proof
@@ -55,25 +55,30 @@
             }
         };
 
+        //20180219 B Compatibility for *Monkey and Chrome Extension
+        var sendRequest = function(url, success, error) {
+            if (GM_xmlhttpRequest) {
+                GM_xmlhttpRequest({ method: 'GET', url: url, onload: success, onerror: error });
+            }
+            else {
+                $.ajax({method: 'GET', url: url, success: success, error: error});
+            }
+        };
+
         var i;
         for (i = 0; i < pagesFollowers; i++) {
             //20180219 B setTimeout to avoid Douban's abnormality check
             var sendFollowerRequest = function(j){
-                GM_xmlhttpRequest ( {
-                    method:     'GET',
-                    synchronous:false,
-                    url:        'https://www.douban.com/contacts/rlist?start='+j*20,
-                    onload:     function (responseDetails) {
+                sendRequest('https://www.douban.com/contacts/rlist?start='+j*20, function (responseDetails) {
                         Array.prototype.push.apply(followers, $(responseDetails.responseText).find("ul.user-list>li").map(function(){
                             var item = $(this);
                             return {id: item.attr("id"), html: item.find("a[title]") };
                         }));
                         check();
-                    },
-                    onerror:    function(errorDetails) {
+                    }, function(errorDetails) {
                         console.log(errorDetails.responseText);
                     }
-                } );
+                );
             };
 
             setTimeout(sendFollowerRequest.bind(undefined, i), i*500);
@@ -82,21 +87,16 @@
         for (i = 0; i < pagesFollowings; i++) {
             //20180219 B setTimeout to avoid Douban's abnormality check
             var sendFollowingRequest = function(j){
-                GM_xmlhttpRequest ( {
-                    method:     'GET',
-                    synchronous:false,
-                    url:        'https://www.douban.com/contacts/list?start='+j*20,
-                    onload:     function (responseDetails) {
+                sendRequest('https://www.douban.com/contacts/list?start='+j*20, function (responseDetails) {
                         Array.prototype.push.apply(followings, $(responseDetails.responseText).find("ul.user-list>li").map(function(){
                             var item = $(this);
                             return {id: item.attr("id"), html: item.find("a[title]") };
                         }));
                         check();
-                    },
-                    onerror:    function(errorDetails) {
+                    }, function(errorDetails) {
                         console.log(errorDetails.responseText);
                     }
-                } );
+                );
             };
 
             setTimeout(sendFollowingRequest.bind(undefined, i), i*500);
