@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Douban Follow
 // @namespace    http://brucezhao.com/
-// @version      0.2.2
+// @version      0.2.3
 // @description  Find who did not follow me back!
 // @author       Mr. Beitang
 // @match        *://www.douban.com/
@@ -69,40 +69,41 @@
             }
         };
 
+        var sendFollowerRequest = function(j){
+            sendRequest('https://www.douban.com/contacts/rlist?start='+j*20, function (data) {
+                    Array.prototype.push.apply(followers, $(data).find("ul.user-list>li").map(function(){
+                        var item = $(this);
+                        return {id: item.attr("id"), html: item.find("a[title]") };
+                    }));
+                    check();
+                }, function(error) {
+                    console.log(error);
+                }
+            );
+        };
+
+        var sendFollowingRequest = function(j){
+            sendRequest('https://www.douban.com/contacts/list?start='+j*20, function (data) {
+                    Array.prototype.push.apply(followings, $(data).find("ul.user-list>li").map(function(){
+                        var item = $(this);
+                        return {id: item.attr("id"), html: item.find("a[title]") };
+                    }));
+                    check();
+                }, function(error) {
+                    console.log(error);
+                }
+            );
+        };
+
+
         var i;
         for (i = 0; i < pagesFollowers; i++) {
             //20180219 B setTimeout to avoid Douban's abnormality check
-            var sendFollowerRequest = function(j){
-                sendRequest('https://www.douban.com/contacts/rlist?start='+j*20, function (data) {
-                        Array.prototype.push.apply(followers, $(data).find("ul.user-list>li").map(function(){
-                            var item = $(this);
-                            return {id: item.attr("id"), html: item.find("a[title]") };
-                        }));
-                        check();
-                    }, function(error) {
-                        console.log(error);
-                    }
-                );
-            };
-
             setTimeout(sendFollowerRequest.bind(undefined, i), i*500);
         }
 
         for (i = 0; i < pagesFollowings; i++) {
             //20180219 B setTimeout to avoid Douban's abnormality check
-            var sendFollowingRequest = function(j){
-                sendRequest('https://www.douban.com/contacts/list?start='+j*20, function (data) {
-                        Array.prototype.push.apply(followings, $(data).find("ul.user-list>li").map(function(){
-                            var item = $(this);
-                            return {id: item.attr("id"), html: item.find("a[title]") };
-                        }));
-                        check();
-                    }, function(error) {
-                        console.log(error);
-                    }
-                );
-            };
-
             setTimeout(sendFollowingRequest.bind(undefined, i), i*500);
         }
         
