@@ -3,7 +3,7 @@
 // @namespace    http://brucezhao.com/
 // @version      0.2.1
 // @description  Find who did not follow me back!
-// @author       Mr.Beitang
+// @author       Mr. Beitang
 // @match        *://www.douban.com/
 // @require      http://code.jquery.com/jquery-1.4.4.min.js
 // @grant        GM_xmlhttpRequest
