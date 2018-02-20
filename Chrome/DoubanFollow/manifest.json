@@ -4,6 +4,7 @@
     "manifest_version": 2,
     "description": "Find who is not following me.",
     "browser_action": {
+        "default_icon": "icon_48x48.jpg"
     },
     "content_scripts":[{
         "js":["jquery-1.4.4.min.js","DoubanFollow.user.js"],
