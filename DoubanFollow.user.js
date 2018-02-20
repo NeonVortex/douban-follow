@@ -58,7 +58,11 @@
         //20180219 B Compatibility for *Monkey and Chrome Extension
         var sendRequest = function(url, success, error) {
             if (GM_xmlhttpRequest) {
-                GM_xmlhttpRequest({ method: 'GET', url: url, onload: success, onerror: error });
+                GM_xmlhttpRequest({ method: 'GET', url: url, onload: function(response){
+                    success(response.responseText);
+                }, onerror: function(response){
+                    error(response.responseText);
+                }});
             }
             else {
                 $.ajax({method: 'GET', url: url, success: success, error: error});
@@ -69,14 +73,14 @@
         for (i = 0; i < pagesFollowers; i++) {
             //20180219 B setTimeout to avoid Douban's abnormality check
             var sendFollowerRequest = function(j){
-                sendRequest('https://www.douban.com/contacts/rlist?start='+j*20, function (responseDetails) {
-                        Array.prototype.push.apply(followers, $(responseDetails.responseText).find("ul.user-list>li").map(function(){
+                sendRequest('https://www.douban.com/contacts/rlist?start='+j*20, function (data) {
+                        Array.prototype.push.apply(followers, $(data).find("ul.user-list>li").map(function(){
                             var item = $(this);
                             return {id: item.attr("id"), html: item.find("a[title]") };
                         }));
                         check();
-                    }, function(errorDetails) {
-                        console.log(errorDetails.responseText);
+                    }, function(error) {
+                        console.log(error);
                     }
                 );
             };
@@ -87,14 +91,14 @@
         for (i = 0; i < pagesFollowings; i++) {
             //20180219 B setTimeout to avoid Douban's abnormality check
             var sendFollowingRequest = function(j){
-                sendRequest('https://www.douban.com/contacts/list?start='+j*20, function (responseDetails) {
-                        Array.prototype.push.apply(followings, $(responseDetails.responseText).find("ul.user-list>li").map(function(){
+                sendRequest('https://www.douban.com/contacts/list?start='+j*20, function (data) {
+                        Array.prototype.push.apply(followings, $(data).find("ul.user-list>li").map(function(){
                             var item = $(this);
                             return {id: item.attr("id"), html: item.find("a[title]") };
                         }));
                         check();
-                    }, function(errorDetails) {
-                        console.log(errorDetails.responseText);
+                    }, function(error) {
+                        console.log(error);
                     }
                 );
             };

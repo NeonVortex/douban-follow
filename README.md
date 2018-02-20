@@ -16,3 +16,4 @@ Chrome用户：
 Safari/Firefox用户：
 1. 下载GreaseMonkey或者TamperMonkey: http://tampermonkey.net/
 2. 将DoubanFollow.user.js下载添加到TamperMonkey里，也可以从这里下载并直接安装： https://openuserjs.org/scripts/popoxee/Douban_Follow
+
