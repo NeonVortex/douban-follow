@@ -1,4 +1,4 @@
-# DoubanFollow
+# Douban Follow
 Find who does not follow me on Douban
 
 Chrome: use `Chrome/DoubanFollow.crx`, or from Chrome Store https://chrome.google.com/webstore/detail/douban-follow/ondjhinhjljoemjjoooiifcgkphnoooo?hl=en-US
