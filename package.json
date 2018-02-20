@@ -1,6 +1,6 @@
 {
   "name": "douban-follow",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Find who does not follow me on Douban",
   "license": "MIT",
   "repository": {
