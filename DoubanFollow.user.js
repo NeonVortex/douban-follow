@@ -57,7 +57,7 @@
 
         //20180219 B Compatibility for *Monkey and Chrome Extension
         var sendRequest = function(url, success, error) {
-            if (GM_xmlhttpRequest) {
+            if (typeof GM_xmlhttpRequest != 'undefined' && GM_xmlhttpRequest) {
                 GM_xmlhttpRequest({ method: 'GET', url: url, onload: function(response){
                     success(response.responseText);
                 }, onerror: function(response){
