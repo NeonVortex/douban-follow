@@ -11,6 +11,7 @@ Safari/Firefox: download GreaseMonkey or TamperMonkey, and install the script fr
 
 Chrome用户：
 1. 可以直接去Chrome插件商店搜索Douban Follow，或者用这个链接直达：https://chrome.google.com/webstore/detail/douban-follow/ondjhinhjljoemjjoooiifcgkphnoooo?hl=en-US
+2. 也可以使用Chrome文件夹下的DoubanFollow.crx，下载后打开Chrome，地址栏中输入chrome://extensions，然后把下载的文件拖入窗口内安装即可
 
 Safari/Firefox用户：
 1. 下载GreaseMonkey或者TamperMonkey: http://tampermonkey.net/
