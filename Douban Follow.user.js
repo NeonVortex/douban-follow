@@ -9,6 +9,7 @@
 // @grant        GM_xmlhttpRequest
 // @connect      douban.com
 // @license      MIT
+// @run-at       document-end
 // ==/UserScript==
 
 (function() {
