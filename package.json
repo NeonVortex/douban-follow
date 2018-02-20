@@ -1,0 +1,14 @@
+{
+  "name": "douban-follow",
+  "version": "0.2.1",
+  "description": "Find who does not follow me on Douban",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/texasbruce/DoubanFollow"
+  },
+  "devDependencies": {
+    "crx": "3.2.1",
+    "javascript-obfuscator": "0.14.3"
+  }
+}
