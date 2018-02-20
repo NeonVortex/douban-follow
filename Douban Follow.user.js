@@ -34,7 +34,7 @@
         };
 
         var getLoadingMessageHTML = function(){
-            return "<p><span>Loading " +
+            return "<p><span>正在载入 " +
                 Math.floor(Number(Number(followers.length) + Number(followings.length)) * 100 / Number(Number(numFollowers) + Number(numFollowings))) +
                 "%</span></p>";
         };
