@@ -8,7 +8,13 @@
     "url": "https://github.com/texasbruce/DoubanFollow"
   },
   "devDependencies": {
-    "crx": "3.2.1",
-    "javascript-obfuscator": "0.14.3"
+    "crx": ">=3.2.1",
+    "javascript-obfuscator": ">=0.14.3",
+    "babel-cli" : ">=6.26.0",
+    "babel-preset-env": ">=1.6.0",
+    "babel-polyfill": ">=6.26.0"
+  },
+  "scripts": {
+    "build" : "./build.sh"
   }
 }
