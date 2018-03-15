@@ -1,2 +1,112 @@
-var _0x4e64=['replace','ceil','#friend\x20:contains(\x27我的关注\x27)\x20a[href]:contains(\x27成员\x27)','some','<p><span>正在载入\x20','floor','length','%</span></p>','insertAfter','append','<span>','html','outerHTML','<br/>','GET','responseText','ajax','https://www.douban.com/contacts/rlist?start=','prototype','push','apply','ul.user-list>li','attr','find','a[title]','log','https://www.douban.com/contacts/list?start=','bind','<br/><a\x20href=\x27javascript:void(0)\x27>>\x20未关注我的人</a><br/>','text'];(function(_0x2f6ad5,_0x18e6bd){var _0x51a425=function(_0x1da082){while(--_0x1da082){_0x2f6ad5['push'](_0x2f6ad5['shift']());}};_0x51a425(++_0x18e6bd);}(_0x4e64,0xee));var _0x3684=function(_0x4a11aa,_0x214037){_0x4a11aa=_0x4a11aa-0x0;var _0x2c2336=_0x4e64[_0x4a11aa];return _0x2c2336;};// @license      MIT
-(function(){'use strict';var _0x5a34cf=$('#friend>p')['append'](_0x3684('0x0'));_0x5a34cf['click'](function(){var _0x477a89=$('#friend\x20a[href]:contains(\x27被\x27):contains(\x27人关注\x27)')[_0x3684('0x1')]()[_0x3684('0x2')](/[^0-9]/g,'');var _0x3f3d8b=Math[_0x3684('0x3')](_0x477a89/0x14);var _0x3ba85f=$(_0x3684('0x4'))[_0x3684('0x1')]()[_0x3684('0x2')](/[^0-9]/g,'');var _0x1a2c00=Math['ceil'](_0x3ba85f/0x14);var _0x2cb78c=[],_0x499cee=[];var _0x184906=function(){return _0x499cee['filter'](function(_0x2ff4c2){return!_0x2cb78c[_0x3684('0x5')](function(_0x1fe6cd){return _0x2ff4c2['id']==_0x1fe6cd['id'];});});};var _0x2d74df=function(){return _0x3684('0x6')+Math[_0x3684('0x7')](Number(Number(_0x2cb78c[_0x3684('0x8')])+Number(_0x499cee['length']))*0x64/Number(Number(_0x477a89)+Number(_0x3ba85f)))+_0x3684('0x9');};var _0x4fa9b1=$(_0x2d74df())[_0x3684('0xa')](_0x5a34cf);var _0x41a2f5=function(){if(_0x2cb78c['length']>=_0x477a89&&_0x499cee[_0x3684('0x8')]>=_0x3ba85f){_0x4fa9b1['html']('');_0x184906()['forEach'](function(_0x57b0d6){_0x4fa9b1[_0x3684('0xb')]($(_0x3684('0xc')+_0x57b0d6[_0x3684('0xd')]['get'](0x0)[_0x3684('0xe')]+'</span>'));});_0x4fa9b1[_0x3684('0xb')](_0x3684('0xf'));}else{_0x4fa9b1[_0x3684('0xd')](_0x2d74df());}};var _0x1040f1=function(_0x10f70d,_0x1fddd3,_0x1ebea8){if(typeof GM_xmlhttpRequest!='undefined'&&GM_xmlhttpRequest){GM_xmlhttpRequest({'method':_0x3684('0x10'),'url':_0x10f70d,'onload':function(_0x30b4f6){_0x1fddd3(_0x30b4f6['responseText']);},'onerror':function(_0x4656a3){_0x1ebea8(_0x4656a3[_0x3684('0x11')]);}});}else{$[_0x3684('0x12')]({'method':'GET','url':_0x10f70d,'success':_0x1fddd3,'error':_0x1ebea8});}};var _0xc97631=function(_0x10b75e){_0x1040f1(_0x3684('0x13')+_0x10b75e*0x14,function(_0x1cd9b7){Array[_0x3684('0x14')][_0x3684('0x15')][_0x3684('0x16')](_0x2cb78c,$(_0x1cd9b7)['find'](_0x3684('0x17'))['map'](function(){var _0x25799a=$(this);return{'id':_0x25799a[_0x3684('0x18')]('id'),'html':_0x25799a[_0x3684('0x19')](_0x3684('0x1a'))};}));_0x41a2f5();},function(_0xa1bd08){console[_0x3684('0x1b')](_0xa1bd08);});};var _0x15b60f=function(_0x4d2ee4){_0x1040f1(_0x3684('0x1c')+_0x4d2ee4*0x14,function(_0x77641b){Array[_0x3684('0x14')][_0x3684('0x15')][_0x3684('0x16')](_0x499cee,$(_0x77641b)['find'](_0x3684('0x17'))['map'](function(){var _0x40df70=$(this);return{'id':_0x40df70[_0x3684('0x18')]('id'),'html':_0x40df70[_0x3684('0x19')](_0x3684('0x1a'))};}));_0x41a2f5();},function(_0xd21be3){console[_0x3684('0x1b')](_0xd21be3);});};var _0x13d753;for(_0x13d753=0x0;_0x13d753<_0x3f3d8b;_0x13d753++){setTimeout(_0xc97631[_0x3684('0x1d')](undefined,_0x13d753),_0x13d753*0x1f4);}for(_0x13d753=0x0;_0x13d753<_0x1a2c00;_0x13d753++){setTimeout(_0x15b60f['bind'](undefined,_0x13d753),_0x13d753*0x1f4);}});}());
+// ==UserScript==
+// @name         Douban Follow
+// @namespace    http://brucezhao.com/
+// @version      0.2.4
+// @description  Find who did not follow me back!
+// @author       Mr. Beitang
+// @match        *://www.douban.com/
+// @require      http://code.jquery.com/jquery-1.4.4.min.js
+// @grant        GM_xmlhttpRequest
+// @connect      douban.com
+// @license      MIT
+// @run-at       document-end
+// ==/UserScript==
+
+(() => {
+    'use strict';
+
+    var link = $("#friend>p").append("<br/><a href='javascript:void(0)'>> 未关注我的人</a><br/>");
+    
+    link.click(function(){
+        //20180219 B Change selector for future proof
+        //var numFollowers = $("#friend > p > a[href$='/contacts/rlist']").text().replace(/[^0-9]/g,"");
+        var numFollowers = $("#friend a[href]:contains('被'):contains('人关注')").text().replace(/[^0-9]/g,"");
+        var pagesFollowers = Math.ceil(numFollowers/20);
+
+        //20180219 B Change selector for future proof
+        //var numFollowings = $("#friend .pl > a[href$='/contacts/list']").text().replace(/[^0-9]/g,"");
+        var numFollowings = $("#friend :contains('我的关注') a[href]:contains('成员')").text().replace(/[^0-9]/g,"");
+        var pagesFollowings = Math.ceil(numFollowings/20);
+
+        var followers = [], followings = [];
+
+        var checkNotFollowers = function() {
+            return followings.filter(function(following){return !followers.some(function(follower){return following.id == follower.id;}); });
+        };
+
+        var getLoadingMessageHTML = function(){
+            return "<p><span>正在载入 " +
+                Math.floor(Number(Number(followers.length) + Number(followings.length)) * 100 / Number(Number(numFollowers) + Number(numFollowings))) +
+                "%</span></p>";
+        };
+
+        var loading = $(getLoadingMessageHTML()).insertAfter(link);
+
+        var check = function() {
+            if (followers.length >= numFollowers && followings.length >= numFollowings) {
+                loading.html("");
+                checkNotFollowers().forEach(function(item){
+                    loading.append($("<span>"+item.html.get(0).outerHTML+"</span>"));
+                });
+                loading.append("<br/>");
+            }
+            else {
+                loading.html(getLoadingMessageHTML());
+            }
+        };
+
+        //20180219 B Compatibility for *Monkey and Chrome Extension
+        var sendRequest = function(url, success, error) {
+            if (typeof GM_xmlhttpRequest != 'undefined' && GM_xmlhttpRequest) {
+                GM_xmlhttpRequest({ method: 'GET', url: url, onload: function(response){
+                    success(response.responseText);
+                }, onerror: function(response){
+                    error(response.responseText);
+                }});
+            }
+            else {
+                $.ajax({method: 'GET', url: url, success: success, error: error});
+            }
+        };
+
+        var sendFollowerRequest = function(j){
+            sendRequest('https://www.douban.com/contacts/rlist?start='+j*20, function (data) {
+                    Array.prototype.push.apply(followers, $(data).find("ul.user-list>li").map(function(){
+                        var item = $(this);
+                        return {id: item.attr("id"), html: item.find("a[title]") };
+                    }));
+                    check();
+                }, function(error) {
+                    console.log(error);
+                }
+            );
+        };
+
+        var sendFollowingRequest = function(j){
+            sendRequest('https://www.douban.com/contacts/list?start='+j*20, function (data) {
+                    Array.prototype.push.apply(followings, $(data).find("ul.user-list>li").map(function(){
+                        var item = $(this);
+                        return {id: item.attr("id"), html: item.find("a[title]") };
+                    }));
+                    check();
+                }, function(error) {
+                    console.log(error);
+                }
+            );
+        };
+
+
+        var i;
+        for (i = 0; i < pagesFollowers; i++) {
+            //20180219 B setTimeout to avoid Douban's abnormality check
+            setTimeout(sendFollowerRequest.bind(undefined, i), i*500);
+        }
+
+        for (i = 0; i < pagesFollowings; i++) {
+            //20180219 B setTimeout to avoid Douban's abnormality check
+            setTimeout(sendFollowingRequest.bind(undefined, i), i*500);
+        }
+        
+    });
+
+})();

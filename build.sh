@@ -7,7 +7,9 @@ cd $rootDirectory
 function obfs {
     echo "Generating obfuscation file"
     OUTPUT_FILE=Chrome/DoubanFollow/DoubanFollow.user.js
-    javascript-obfuscator DoubanFollow.user.js -o $OUTPUT_FILE
+    #Disable obfs as the code does not pass Chrome policy
+    #javascript-obfuscator DoubanFollow.user.js -o $OUTPUT_FILE
+    cp DoubanFollow.user.js $OUTPUT_FILE
     git add $OUTPUT_FILE
 }
 

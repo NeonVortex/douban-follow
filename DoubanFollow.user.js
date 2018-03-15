@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Douban Follow
 // @namespace    http://brucezhao.com/
-// @version      0.2.3
+// @version      0.2.4
 // @description  Find who did not follow me back!
 // @author       Mr. Beitang
 // @match        *://www.douban.com/
@@ -12,7 +12,7 @@
 // @run-at       document-end
 // ==/UserScript==
 
-(function() {
+(() => {
     'use strict';
 
     var link = $("#friend>p").append("<br/><a href='javascript:void(0)'>> 未关注我的人</a><br/>");
