@@ -13,7 +13,7 @@
 // @run-at       document-end
 // ==/UserScript==
 
-(() => {
+(function () {
     'use strict';
 
     const link = $("#friend>p").append("<br/><a href='javascript:void(0)'>> 未关注我的人</a><br/>");
