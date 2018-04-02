@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Douban Follow
-// @namespace    http://brucezhao.com/
-// @version      0.2.5
-// @description  Find who did not follow me back!
+// @namespace    http://beitang.ca/
+// @version      0.2.6
+// @description  Find who did not follow me back! 温馨提醒：一天不要使用超过1次
 // @author       Mr. Beitang
 // @match        *://www.douban.com/
 // @require      http://code.jquery.com/jquery-1.4.4.min.js

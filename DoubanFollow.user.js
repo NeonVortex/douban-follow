@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Douban Follow
-// @namespace    http://brucezhao.com/
+// @namespace    http://beitang.ca/
 // @version      0.2.6
-// @description  Find who did not follow me back!
+// @description  Find who did not follow me back! 温馨提醒：一天不要使用超过1次
 // @author       Mr. Beitang
 // @match        *://www.douban.com/
 // @require      http://code.jquery.com/jquery-1.4.4.min.js
@@ -62,7 +62,8 @@
         
       
         const getNoneFollowers = () => 
-            followings.filter(function(following){return !followers.some(function(follower){return following.id == follower.id;}); });
+            followings.filter(following => 
+                !followers.some(follower => following.id == follower.id) );
 
 
         //progress event handler
